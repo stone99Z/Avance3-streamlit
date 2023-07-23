@@ -80,7 +80,7 @@ def main():
         st.write(datos_test)
         
         
-        st.write("FASE 3. Prredicciones")
+        st.write("FASE 3. PREDICCIONES")
         from sklearn.linear_model import LinearRegression
         modelo = LinearRegression()
         modelo.fit(datos_entrenamiento, etiquetas_entrenamiento)
