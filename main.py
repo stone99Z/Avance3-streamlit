@@ -2,9 +2,6 @@ import streamlit as st
 import io
 import pandas as pd
 import matplotlib.pyplot as plt
-import numpy as np
-from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_squared_error
 def main():
         st.title("Algoritmo de Regresión Lineal")
 
@@ -62,7 +59,8 @@ def main():
         st.write(datos_test)
         
         
-        st.write("FASE 3. P  redicciones")
+        st.write("FASE 3. Prredicciones")
+        from sklearn.linear_model import LinearRegression
         modelo = LinearRegression()
         modelo.fit(datos_entrenamiento, etiquetas_entrenamiento)
         
@@ -71,7 +69,8 @@ def main():
         st.write(predicciones)
         
         # Aqui calculamos el margen de error en la prediccion de la CANT. DE PARTICIPANTES.
-    
+        import numpy as np
+        from sklearn.metrics import mean_squared_error
         error = np.sqrt(mean_squared_error(etiquetas_test, predicciones))
         st.write("Error porcentual:", error * 100)
 
