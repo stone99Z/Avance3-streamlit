@@ -12,9 +12,30 @@ def main():
         st.write(datos_sec)
 
         # Realiza las visualizaciones de datos y gráficos
+        st.write("Aqui podremos saber cuantos datos no existentes o espacios vacios hay por columna:")
+        st.write(datos_sec.isna().sum())
+        
+        # Eliminar columnas que no aportan al objetivo principal (predecir la cant. de participantes)
+        datos_sec = datos_sec.drop(columns=['CENTRO POBLADO'])
+        datos_sec = datos_sec.drop(columns=['COMUNIDAD CAMPESINA O NATIVA'])
+        datos_sec = datos_sec.drop(columns=['DEPARTAMENTO'])
+        datos_sec = datos_sec.drop(columns=['NOMBRE DEL EVENTO'])
+        datos_sec = datos_sec.drop(columns=['TRIMESTRE'])
+        datos_sec = datos_sec.drop(columns=['PROVINCIA'])
+        datos_sec = datos_sec.drop(columns=['DISTRITO'])
+        
+        st.write("Datos limpios sin columnas irrelevantes:")
+        st.write(datos_sec)
+        
+        # Realiza las visualizaciones de datos y gráficos
         st.write("Podemos visualizar datos específicos:")
-        st.write(datos_sec["DEPARTAMENTO"])
+        st.write(datos_sec["FEMENINO"])
+        
+        st.write("Información de los datos cargados:")
+        st.write(datos_sec.info())
 
+
+        
         st.write("Información de los datos cargados:")
         st.write(datos_sec.info())
 
