@@ -7,7 +7,7 @@ def main():
     st.title("Algoritmo de Regresión Lineal")
 
     # Aquí va el código para cargar los datos
- archivo_csv = "nombre_del_archivo.csv"  
+ archivo_csv = "registro.csv"  
     datos_sec = pd.read_csv(archivo_csv, encoding='latin-1', on_bad_lines='skip')
         st.write("Datos cargados:")
         st.write(datos_sec)
