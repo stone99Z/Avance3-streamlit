@@ -57,9 +57,21 @@ def main():
         st.write(datos_entrenamiento)
         st.write("Datos de test sin columna 'CANT. DE PARTICIPANTES':")
         st.write(datos_test)
-
-
-
+        
+        
+        st.write("FASE 3. Predicciones")
+        modelo = LinearRegression()
+        modelo.fit(datos_entrenamiento, etiquetas_entrenamiento)
+        
+        predicciones = modelo.predict(datos_test)
+        st.write("Predicciones:")
+        st.write(predicciones)
+        
+        # Aqui calculamos el margen de error en la prediccion de la CANT. DE PARTICIPANTES.
+        import numpy as np
+        from sklearn.metrics import mean_squared_error
+        error = np.sqrt(mean_squared_error(etiquetas_test, predicciones))
+        st.write("Error porcentual:", error * 100)
 
 if __name__ == "__main__":
     main()
