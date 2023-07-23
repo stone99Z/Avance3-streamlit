@@ -23,20 +23,22 @@ def main():
 
         st.write("Nueva tabla con solo los datos relevantes para el objetivo:")
         st.write(datos_sec)
-
+        
         st.write("Grafico de dispersión (FEMENINO Vs CANT. DE PARTICIPANTES):")
-        plt.scatter(x=datos_sec['FEMENINO'], y=datos_sec['CANT. DE PARTICIPANTES'])
+        fig, ax = plt.subplots()
+        ax.scatter(x=datos_sec['FEMENINO'], y=datos_sec['CANT. DE PARTICIPANTES'])
         plt.title('FEMENINO Vs CANT. DE PARTICIPANTES')
         plt.xlabel('FEMENINO')
         plt.ylabel('CANT. DE PARTICIPANTES')
-        st.pyplot()
-
+        st.pyplot(fig)
+        
         st.write("Grafico de dispersión (MASCULINO Vs CANT. DE PARTICIPANTES):")
-        plt.scatter(x=datos_sec['MASCULINO'], y=datos_sec['CANT. DE PARTICIPANTES'])
+        fig, ax = plt.subplots()
+        ax.scatter(x=datos_sec['MASCULINO'], y=datos_sec['CANT. DE PARTICIPANTES'])
         plt.title('MASCULINO Vs CANT. DE PARTICIPANTES')
         plt.xlabel('MASCULINO')
         plt.ylabel('CANT. DE PARTICIPANTES')
-        st.pyplot()
+        st.pyplot(fig)
 
 if __name__ == "__main__":
     main()
