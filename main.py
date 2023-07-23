@@ -62,7 +62,7 @@ def main():
         st.write(datos_test)
         
         
-        st.write("FASE 3. Predicciones")
+        st.write("FASE 3. P  redicciones")
         modelo = LinearRegression()
         modelo.fit(datos_entrenamiento, etiquetas_entrenamiento)
         
