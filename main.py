@@ -40,5 +40,26 @@ def main():
         plt.ylabel('CANT. DE PARTICIPANTES')
         st.pyplot(fig)
 
+
+        st.write("FASE 2. Entrenamiento del modelo")
+        datos_entrenamiento = datos_sec.sample(frac=0.8, random_state=0)
+        datos_test = datos_sec.drop(datos_entrenamiento.index)
+        st.write("Datos de entrenamiento:")
+        st.write(datos_entrenamiento)
+        
+        st.write("Datos de test:")
+        st.write(datos_test)
+        
+        st.write("Quitar columna 'CANT. DE PARTICIPANTES' de datos de entrenamiento y test")
+        etiquetas_entrenamiento = datos_entrenamiento.pop('CANT. DE PARTICIPANTES')
+        etiquetas_test = datos_test.pop('CANT. DE PARTICIPANTES')
+        st.write("Datos de entrenamiento sin columna 'CANT. DE PARTICIPANTES':")
+        st.write(datos_entrenamiento)
+        st.write("Datos de test sin columna 'CANT. DE PARTICIPANTES':")
+        st.write(datos_test)
+
+
+
+
 if __name__ == "__main__":
     main()
