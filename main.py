@@ -81,13 +81,16 @@ def main():
         
         
         st.write("FASE 3. PREDICCIONES")
+
+
         from sklearn.linear_model import LinearRegression
         modelo = LinearRegression()
         modelo.fit(datos_entrenamiento, etiquetas_entrenamiento)
-        
+
         predicciones = modelo.predict(datos_test)
+
         st.write("Predicciones:")
-        st.write(predicciones)
+        st.write(pd.DataFrame(predicciones, columns=['value']))
         
         # Aqui calculamos el margen de error en la prediccion de la CANT. DE PARTICIPANTES.
         import numpy as np
