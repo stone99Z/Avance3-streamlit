@@ -95,5 +95,21 @@ def main():
         error = np.sqrt(mean_squared_error(etiquetas_test, predicciones))
         st.write("Error porcentual:", error * 100)
 
+
+
+        # FASE 3. PREDICCIONES
+        from sklearn.ensemble import RandomForestRegressor
+        
+        modelo_rf = RandomForestRegressor()
+        modelo_rf.fit(datos_entrenamiento, etiquetas_entrenamiento)
+        
+        predicciones_rf = modelo_rf.predict(datos_test)
+        st.write("Predicciones (Random Forest):")
+        st.write(predicciones_rf)
+        
+        # Calculamos el margen de error en la predicción de la CANT. DE PARTICIPANTES
+        error_rf = np.sqrt(mean_squared_error(etiquetas_test, predicciones_rf))
+        st.write("Error porcentual (Random Forest):", error_rf * 100)
+
 if __name__ == "__main__":
     main()
